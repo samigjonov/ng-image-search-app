@@ -21,7 +21,7 @@ export class SearchEffects {
   @Effect()
   loadImages$ = this.actions$.pipe(
     ofType(ActionTypes.SEARCH),
-    mergeMap((data: { payload: {query: string, page: number} }) =>
+    mergeMap((data: { payload: { query: string, page: number } }) =>
       this.unsplashService.searchImages(data.payload.query, data.payload.page).pipe(
         map((result: any) => new SearchDone(result)),
         catchError(() => EMPTY)
@@ -43,7 +43,7 @@ export class MainEffects {
     ofType(ActionTypes.ADD_LIST),
     mergeMap((data: { payload: List }) =>
       this.listService.post(data.payload).pipe(
-        map(() => new AddListDone()),
+        map((result: List[]) => new AddListDone(result)),
         catchError((error) => {
           return of({
             type: ActionTypes.ERROR_OCCURRED,

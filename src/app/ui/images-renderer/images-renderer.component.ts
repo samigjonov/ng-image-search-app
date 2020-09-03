@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddFavoriteModalComponent } from '../add-favorite-modal/add-favorite-modal.component';
 import { SearchState } from '../../core/models/state.model';
 import { Search } from '../../core/store/actions';
+import { ImageMenuComponent } from '../image-menu/image-menu.component';
 
 @Component({
   selector: 'app-images-renderer',
@@ -33,6 +34,12 @@ export class ImagesRendererComponent {
 
   public openFavoriteModal(image: Image) {
     const openedModal = this.modalService.open(AddFavoriteModalComponent);
+    openedModal.componentInstance.image = image;
+    openedModal.componentInstance.modal = openedModal;
+  }
+
+  public openMenuForMobile(image: Image) {
+    const openedModal = this.modalService.open(ImageMenuComponent);
     openedModal.componentInstance.image = image;
     openedModal.componentInstance.modal = openedModal;
   }

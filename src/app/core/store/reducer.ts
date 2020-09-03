@@ -52,6 +52,7 @@ export function MainReducer(state = mainInitialState, action: ActionTypes.MainAc
       return {
         ...state,
         loading: false,
+        lists: action.payload,
         success: 'List added successfully'
       };
     }

@@ -51,7 +51,7 @@ export class AddList implements Action {
 export class AddListDone implements Action {
   readonly type = ADD_LIST_DONE;
 
-  constructor() {
+  constructor(public payload: List[]) {
   }
 }
 

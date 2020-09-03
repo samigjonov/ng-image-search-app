@@ -15,7 +15,7 @@ import { Image } from '../../core/models/image.model';
 
 export class FavoritesComponent implements OnInit {
   public lists: List[];
-  public selectedListId: string;
+  public selectedListId = '';
   public selectedList: List;
   public listForm: FormGroup;
   public images: Image[];
@@ -26,6 +26,7 @@ export class FavoritesComponent implements OnInit {
       if (state.success) {
         this.swalService.showBasicAlert({message: state.success});
         this.store.dispatch(new ClearSuccess());
+        this.selectedListId = '';
       }
       if (state.error) {
         this.swalService.showErrorAlert({message: state.error});

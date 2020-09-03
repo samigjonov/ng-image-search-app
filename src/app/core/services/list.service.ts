@@ -20,7 +20,7 @@ export class ListService {
     }
     const newList = [...currentList, {...list, id: new Date().getTime().toString(), images: []}];
     localStorage.setItem('lists', JSON.stringify(newList));
-    return of({message: 'success'});
+    return of(newList);
   }
 
   public get() {
@@ -34,7 +34,8 @@ export class ListService {
 
   public put(list: List) {
     const currentList = this.retrieveList();
-    if (currentList.findIndex(item => list.title === item.title) !== -1) {
+    const selectedList = currentList.find(item => item.id === list.id);
+    if (selectedList.title === list.title && selectedList.description === list.description) {
       return throwError('List with such title already exists');
     }
     const updatingItemIndex = currentList.findIndex(item => item.id === list.id);

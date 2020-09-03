@@ -7,6 +7,9 @@
         <div class="form-group">
           <label for="list">Select a list</label>
           <select class="form-control" id="list" [(ngModel)]="selectedListId" (ngModelChange)="loadListDetails()">
+            <option value="">
+              Please, select a list
+            </option>
             <option *ngFor="let list of lists" [value]="list.id">
               {{ list.title }}
             </option>

@@ -41,6 +41,8 @@
       background-color: #6C747D;
       color: white;
       margin-left: 5px;
+      display: block;
+      margin-bottom: 5px;
     }
 
     .author-link:hover {
@@ -51,6 +53,14 @@
     .star-link:hover {
       background-color: #FFC001;
       transition: background-color linear 500ms;
+    }
+
+    .mobile-opener-link {
+      font-size: 8px;
+      padding: 8px 12px;
+      border-radius: 2px;
+      background-color: #FFC001;
+      color: white;
     }
   }
 

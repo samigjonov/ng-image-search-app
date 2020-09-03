@@ -7,6 +7,7 @@ import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { LoadingWrapperComponent } from './loading-wrapper/loading-wrapper.component';
 import { FormsModule } from '@angular/forms';
+import { ImageMenuComponent } from './image-menu/image-menu.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     SearchComponent,
     ImagesRendererComponent,
     AddFavoriteModalComponent,
-    LoadingWrapperComponent
+    LoadingWrapperComponent,
+    ImageMenuComponent
   ],
   providers: []
 })
