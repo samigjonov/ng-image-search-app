@@ -6,6 +6,7 @@ NgImageSearchApp in an online platform which is used for finding images.
 ##### The platform is implemented using following tech stacks:
 
   - Angular 9 (NgRx & Effects)
+  - SCSS
   - Unsplash API ()
   - Twitter Bootstrap 4
   - GithubPages
