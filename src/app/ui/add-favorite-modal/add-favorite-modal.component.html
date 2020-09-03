@@ -1,0 +1,54 @@
+<div class="modal-header">
+  <h4 class="modal-title">
+    Add to favorites
+  </h4>
+  <button type="button" class="close" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+        <h6>Choose a list</h6>
+        <hr>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Please, select a list</label>
+          <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="selectedListId">
+            <option *ngFor="let list of lists" [value]="list.id">
+              {{ list.title }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="vertical-divider">or</div>
+      </div>
+      <div class="col-sm-5">
+        <h6>Create a new list</h6>
+        <hr>
+        <div class="form-group">
+          <label for="title">List title</label>
+          <input [(ngModel)]="listTitle"
+                 type="text"
+                 class="form-control"
+                 id="title">
+        </div>
+        <button (click)="createList()"
+                [disabled]="!listTitle"
+                type="submit"
+                class="btn btn-primary pull-right">Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-danger" (click)="modal.close()">Cancel</button>
+  <button
+    (click)="addToList()"
+    [disabled]="!selectedListId"
+    type="button"
+    class="btn btn-outline-success">Save changes
+  </button>
+</div>

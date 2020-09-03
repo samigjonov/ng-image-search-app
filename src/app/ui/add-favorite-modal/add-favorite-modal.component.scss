@@ -1,0 +1,18 @@
+.vertical-divider {
+  width: auto;
+  text-align:center;
+  text-transform: uppercase;
+  height: 100%;
+}
+
+.vertical-divider:before,
+.vertical-divider:after {
+  position: absolute;
+  left: 50%;
+  content: '';
+  z-index: 9;
+  border-left: 1px solid rgba(34,36,38,.15);
+  border-right: 1px solid rgba(255,255,255,.1);
+  width: 0;
+  height: calc(100% - 1rem);
+}
