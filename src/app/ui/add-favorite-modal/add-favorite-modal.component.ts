@@ -16,9 +16,9 @@ import { Image } from '../../core/models/image.model';
 export class AddFavoriteModalComponent implements OnInit {
   public modal: NgbModalRef;
   public listTitle: string;
-  public selectedListId: string;
+  public selectedListId = '';
   public lists: List[];
-  public image: Image;
+  public image: Image | any;
   public error: string;
 
   public constructor(private swalService: SwalService, private store: Store<{ main: MainState }>) {
@@ -42,7 +42,6 @@ export class AddFavoriteModalComponent implements OnInit {
   public createList() {
     this.store.dispatch(new AddList({title: this.listTitle}));
     this.listTitle = null;
-    this.swalService.showBasicAlert();
   }
 
   public addToList() {
@@ -50,12 +49,12 @@ export class AddFavoriteModalComponent implements OnInit {
       id: this.image.id,
       alt_description: this.image.alt_description,
       urls: {
-        regular: this.image.urls.regular
+        regular: this.image.urls.regular,
+        download: this.image.links.download_location
       },
       user: {
         links: {
           html: this.image.user.links.html,
-          download: this.image.user.links.download
         }
       }
     };

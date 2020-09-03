@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { List } from '../models/list.model';
 import { of } from 'rxjs/internal/observable/of';
 import { Image } from '../models/image.model';
-import { Observable, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,9 @@ export class ListService {
 
   public post(list: List) {
     const currentList = this.retrieveList();
+    if (currentList.findIndex(item => list.title === item.title) !== -1) {
+      return throwError('List with such title already exists');
+    }
     const newList = [...currentList, {...list, id: new Date().getTime().toString(), images: []}];
     localStorage.setItem('lists', JSON.stringify(newList));
     return of({message: 'success'});
@@ -29,6 +32,16 @@ export class ListService {
     return of(result);
   }
 
+  public put(list: List) {
+    const currentList = this.retrieveList();
+    if (currentList.findIndex(item => list.title === item.title) !== -1) {
+      return throwError('List with such title already exists');
+    }
+    const updatingItemIndex = currentList.findIndex(item => item.id === list.id);
+    currentList[updatingItemIndex] = list;
+    localStorage.setItem('lists', JSON.stringify(currentList));
+    return of(currentList);
+  }
 
   public addToList(listId: string, image: Image) {
     const currentList = this.retrieveList();
@@ -41,6 +54,7 @@ export class ListService {
     localStorage.setItem('lists', JSON.stringify(currentList));
     return of(currentList);
   }
+
 
   public retrieveList(): List[] {
     try {

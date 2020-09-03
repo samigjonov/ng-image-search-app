@@ -14,7 +14,7 @@ export function SearchReducer(state = searchInitialState, action: ActionTypes.Se
       return {
         ...state,
         loading: true,
-        searchTerm: action.payload
+        searchTerm: action.payload.query
       };
     }
     case ActionTypes.SEARCH_DONE: {
@@ -48,6 +48,13 @@ export function MainReducer(state = mainInitialState, action: ActionTypes.MainAc
         lists: updatedList
       };
     }
+    case ActionTypes.ADD_LIST_DONE: {
+      return {
+        ...state,
+        loading: false,
+        success: 'List added successfully'
+      };
+    }
     case ActionTypes.FETCH_LISTS: {
       return {
         ...state,
@@ -59,6 +66,20 @@ export function MainReducer(state = mainInitialState, action: ActionTypes.MainAc
         ...state,
         loading: false,
         lists: action.payload
+      };
+    }
+    case ActionTypes.UPDATE_LIST: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+    case ActionTypes.UPDATE_LIST_DONE: {
+      return {
+        ...state,
+        loading: false,
+        lists: action.payload,
+        success: 'List successfully updated'
       };
     }
     case ActionTypes.LOADING_DONE: {

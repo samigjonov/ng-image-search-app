@@ -1,1 +1,13 @@
+.search-container {
+  background-image: url('../../../assets/images/search-bg.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
 
+  .input-group {
+    padding: 200px 0;
+
+    input {
+      height: 50px;
+    }
+  }
+}

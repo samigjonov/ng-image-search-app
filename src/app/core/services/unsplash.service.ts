@@ -10,7 +10,6 @@ export class UnsplashService {
   public readonly publicAPI = this.authService.publicAuthenticate();
 
   public constructor(private authService: AuthService) {
-
   }
 
   public searchImages(query: string, pageIndex: number = 1, perPage: number = 20): Observable<any> {

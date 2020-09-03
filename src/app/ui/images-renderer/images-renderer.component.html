@@ -23,6 +23,7 @@
         </ngx-masonry>
         <div class="d-flex justify-content-center">
           <ngb-pagination
+            (pageChange)="loadPage()"
             [(page)]="page"
             [pageSize]="pageSize"
             [collectionSize]="total"

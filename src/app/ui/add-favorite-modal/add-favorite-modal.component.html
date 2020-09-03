@@ -2,7 +2,7 @@
   <h4 class="modal-title">
     Add to favorites
   </h4>
-  <button type="button" class="close" aria-label="Close">
+  <button type="button" class="close" aria-label="Close" (click)="modal.close()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
@@ -15,6 +15,9 @@
         <div class="form-group">
           <label for="exampleFormControlSelect1">Please, select a list</label>
           <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="selectedListId">
+            <option value="">
+              Please select a list
+            </option>
             <option *ngFor="let list of lists" [value]="list.id">
               {{ list.title }}
             </option>

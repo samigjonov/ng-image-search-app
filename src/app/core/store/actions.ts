@@ -14,7 +14,7 @@ export const SEARCH_DONE = 'Images Search Done';
 export class Search implements Action {
   readonly type = SEARCH;
 
-  constructor(public payload: string) {
+  constructor(public payload: {query: string, page?: number}) {
   }
 }
 
@@ -28,8 +28,11 @@ export class SearchDone implements Action {
 export type SearchActions = Search | SearchDone;
 
 export const ADD_LIST = 'Add List';
+export const ADD_LIST_DONE = 'Add List Done';
 export const FETCH_LISTS = 'Fetch Lists';
 export const FETCH_LISTS_DONE = 'Fetch Lists Done';
+export const UPDATE_LIST = 'Update List';
+export const UPDATE_LIST_DONE = 'Update List Done';
 export const ADD_IMAGE = 'Add Image';
 export const ADD_IMAGE_DONE = 'Add Image Done';
 
@@ -45,6 +48,13 @@ export class AddList implements Action {
   }
 }
 
+export class AddListDone implements Action {
+  readonly type = ADD_LIST_DONE;
+
+  constructor() {
+  }
+}
+
 export class FetchLists implements Action {
   readonly type = FETCH_LISTS;
 
@@ -54,6 +64,21 @@ export class FetchLists implements Action {
 
 export class FetchListsDone implements Action {
   readonly type = FETCH_LISTS_DONE;
+
+  constructor(public payload: List[]) {
+  }
+}
+
+
+export class UpdateList implements Action {
+  readonly type = UPDATE_LIST;
+
+  constructor(public payload: List) {
+  }
+}
+
+export class UpdateListDone implements Action {
+  readonly type = UPDATE_LIST_DONE;
 
   constructor(public payload: List[]) {
   }
@@ -101,4 +126,16 @@ export class ClearSuccess implements Action {
   }
 }
 
-export type MainActions = AddList | LoadingDone | FetchLists | FetchListsDone | AddImage | AddImageDone | ErrorOccurred | ClearError | ClearSuccess;
+export type MainActions =
+  AddList
+  | AddListDone
+  | LoadingDone
+  | FetchLists
+  | FetchListsDone
+  | AddImage
+  | AddImageDone
+  | ErrorOccurred
+  | ClearError
+  | ClearSuccess
+  | UpdateList
+  | UpdateListDone;

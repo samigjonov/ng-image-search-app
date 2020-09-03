@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit {
         map((e: any) => e.target.value),
         filter((text: string) => text.length > 1),
         debounceTime(250),
-        tap((query: string) => this.store.dispatch(new Search(query)),
+        tap((query: string) => this.store.dispatch(new Search({query})),
         )).subscribe();
   }
 }
