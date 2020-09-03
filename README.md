@@ -1,27 +1,26 @@
-# NgImageSearchApp
+# Ng Image Search App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+[![N|Solid](https://news.coinsquare.com/wp-content/uploads/2018/02/unsplash-800x600.jpg)](https://samigjonov.github.io/ng-image-search-app/)
 
-## Development server
+NgImageSearchApp in an online platform which is used for finding images.
+##### The platform is implemented using following tech stacks:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  - Angular 9 (NgRx & Effects)
+  - Unsplash API ()
+  - Twitter Bootstrap 4
+  - GithubPages
 
-## Code scaffolding
+# Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  - Searching the images
+  - Adding the image to favorite list
+  - Creating a list
 
-## Build
+#### Backend
+App is implemented only using Angular 9. There is no backend. All the data is stored in the local storage of the browser.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+# How to run
+To run the platform locally, clone the project and run npm start locating in app's directory.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+##### [View the platform](https://samigjonov.github.io/ng-image-search-app/)
